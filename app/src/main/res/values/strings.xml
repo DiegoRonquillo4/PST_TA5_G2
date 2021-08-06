@@ -3,6 +3,10 @@
     <string name="usuario">Usuario</string>
     <string name="contraseña">Contraseña</string>
     <string name="iniciar_sesion">INICIAR SESIÓN</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nombres">Nombres: Alejandro</string>
+    <string name="apellidos">Apellidos: Muñoz</string>
+    <string name="correo">Correo: alemu@mail.com</string>
+    <string name="celular">Celular: 09855784306</string>
+    <string name="favorito">Favorito: Aventura</string>
+    <string name="buscar">Buscar libro...</string>
 </resources>
