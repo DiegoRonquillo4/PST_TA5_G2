@@ -9,4 +9,8 @@
     <string name="celular">Celular: 09855784306</string>
     <string name="favorito">Favorito: Aventura</string>
     <string name="buscar">Buscar libro...</string>
+    <string name="categoria">Buscar libro por categoría</string>
+    <string name="aventura">Aventura</string>
+    <string name="ficcion">Ficción</string>
+    <string name="infantil">Infantil</string>
 </resources>
