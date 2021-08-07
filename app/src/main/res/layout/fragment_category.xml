@@ -11,18 +11,54 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvCategoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="165dp"
-            android:layout_marginTop="333dp"
-            android:layout_marginEnd="188dp"
-            android:layout_marginBottom="379dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="54dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/categoria"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/btnAventura"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnAventura"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="28dp"
+            android:text="@string/aventura"
+            app:backgroundTint="#684646"
+            app:layout_constraintBottom_toTopOf="@+id/btnFiccion"
+            app:layout_constraintEnd_toEndOf="@+id/btnFiccion"
+            app:layout_constraintStart_toStartOf="@+id/btnFiccion"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategoria" />
+
+        <Button
+            android:id="@+id/btnFiccion"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="28dp"
+            android:text="@string/ficcion"
+            app:backgroundTint="#538C34"
+            app:layout_constraintBottom_toTopOf="@+id/btnInfantil"
+            app:layout_constraintEnd_toEndOf="@+id/btnInfantil"
+            app:layout_constraintStart_toStartOf="@+id/btnInfantil"
+            app:layout_constraintTop_toBottomOf="@+id/btnAventura" />
+
+        <Button
+            android:id="@+id/btnInfantil"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="166dp"
+            android:text="@string/infantil"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnFiccion" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
