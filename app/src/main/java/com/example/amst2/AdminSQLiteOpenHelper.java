@@ -16,7 +16,10 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase){
         //Se crea la tabla libros en la base de datos con los campos necesarios
+        //Se crea la tabla usuarios para el inicio de sesión
         sqLiteDatabase.execSQL("create table libro(id int primary key,titulo text, autor text, editorial text, descripcion text, categoria text)");
+        sqLiteDatabase.execSQL("create table usuarios(usuario text primary key, nombres text, apellidos text, correo text, celular text, favorito text, contraseña text)");
+        //Se agregan registros por defecto
         sqLiteDatabase.execSQL("insert into libro(id,titulo,autor,editorial,descripcion, categoria) values(1,'Los detectives salvajes','Roberto Bolaño','DEBOLSILLO','Fotógrafos, toreros, estudiantes, prostitutas, pistoleros, un neonazi…son algunos de los personajes que acompañaran a los dos protagonistas a lo largo de su viaje de no retorno hacia una nueva realidad.','Aventura')");
         sqLiteDatabase.execSQL("insert into libro(id,titulo,autor,editorial,descripcion, categoria) values(2,'Dune','Frank Herbert','DEBOLSILLO','Este clásico de la ciencia ficción describe, construye y da vida a diferentes sociedades interplanetarias, que reflejan los comportamientos y las actitudes del ser humano en un futuro muy lejano, a más de 10.000 años de nuestra época.','Ficción')");
         sqLiteDatabase.execSQL("insert into libro(id,titulo,autor,editorial,descripcion, categoria) values(3,'El principito','Antoine de Saint-Exupery','SALAMANDRA','Fábula mítica y relato filosófico que interroga acerca de la relación del ser humano con su prójimo y con el mundo, El Principito concentra, con maravillosa simplicidad, la constante reflexión de Saint-Exupery sobre la amistad, el amor, la responsabilidad y el sentido de la vida.','Infantil')");

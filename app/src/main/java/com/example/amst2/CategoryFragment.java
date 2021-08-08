@@ -11,21 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CategoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CategoryFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    //Fragment que contiene los botones de cada categoría de libro disponible y llevan a activity CategoryActivity
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     Button btnAventura;
     Button btnFiccion;
     Button btnInfantil;
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -33,15 +25,6 @@ public class CategoryFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CategoryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static CategoryFragment newInstance(String param1, String param2) {
         CategoryFragment fragment = new CategoryFragment();
         Bundle args = new Bundle();
@@ -59,7 +42,7 @@ public class CategoryFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+//Se establecen 3 botones con sus respectivas acciones onClick
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,7 +51,7 @@ public class CategoryFragment extends Fragment {
         btnAventura=(Button) view.findViewById(R.id.btnAventura);
         btnFiccion=(Button) view.findViewById(R.id.btnFiccion);
         btnInfantil=(Button) view.findViewById(R.id.btnInfantil);
-
+        //Se abre Activity Categoría mandando como información la categoría seleccionada (el botón presionado)
         btnAventura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

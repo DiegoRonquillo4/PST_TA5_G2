@@ -3,14 +3,16 @@
     <string name="usuario">Usuario</string>
     <string name="contraseña">Contraseña</string>
     <string name="iniciar_sesion">INICIAR SESIÓN</string>
-    <string name="nombres">Nombres: Alejandro</string>
-    <string name="apellidos">Apellidos: Muñoz</string>
-    <string name="correo">Correo: alemu@mail.com</string>
-    <string name="celular">Celular: 09855784306</string>
-    <string name="favorito">Favorito: Aventura</string>
+    <string name="nombres">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="correo">Correo</string>
+    <string name="celular">Celular</string>
+    <string name="favorito">Favorito</string>
     <string name="buscar">Buscar libro...</string>
     <string name="categoria">Buscar libro por categoría</string>
     <string name="aventura">Aventura</string>
     <string name="ficcion">Ficción</string>
     <string name="infantil">Infantil</string>
+    <string name="registrar">Registrar</string>
+    <string name="registrate">¿No tienes cuenta? <u>Regístrate</u></string>
 </resources>
