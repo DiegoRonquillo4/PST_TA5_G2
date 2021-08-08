@@ -20,15 +20,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+//HomeFragment que incluye una ListView con los libros registrados y una opción para buscar por título
 public class HomeFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     ListView lvLibros;
@@ -67,9 +60,11 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_home, container, false);
+        //Se instancian las variables
         lvLibros=(ListView) view.findViewById(R.id.lvLibros);
         edtBuscar=(EditText) view.findViewById(R.id.edtBuscar);
         btnBuscar=(ImageButton) view.findViewById(R.id.btnBuscar);
+        //Se asocia la función buscar al onClick del botón buscar
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,15 +77,21 @@ public class HomeFragment extends Fragment {
         cargarLibros();
         return view;
     }
+    //Función para cargar libros a la ListView al abrir el fragment Home
     public void cargarLibros() {
+        //Se establece la conexión con la base de datos
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this.getActivity(),
                 "admin", null, 1);
+        //En modo writable (se modifica)
         SQLiteDatabase bd = admin.getWritableDatabase();
+        //Se vacían los ArrayLists por si estaban llenos previamente
         listaDescripcion.clear();
         listaTitulo.clear();
         listaLibros.clear();
+        //Se seleccionan todos los registros de libros con Cursor
         Cursor registro=bd.rawQuery("select * from libro",null);
         if(registro.moveToFirst()){
+            //Para cada registro se obtienen los datos y se añaden a los ArrayLists respectivos
             do{
                 String titulo= registro.getString(1);
                 String autor= registro.getString(2);
@@ -101,9 +102,11 @@ public class HomeFragment extends Fragment {
                 listaDescripcion.add(registro.getString(4));
             }while (registro.moveToNext());
         }
+        //Se añade la lista de libros a un adaptador para mostrarlos en la ListView
         adaptador=new ArrayAdapter(this.getActivity(), android.R.layout.simple_list_item_1,listaLibros);
         lvLibros.setAdapter(adaptador);
         lvLibros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //Se establece un diálogo de alerta con la descripción del libro al hacer click sobre el.
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
@@ -115,16 +118,21 @@ public class HomeFragment extends Fragment {
         });
         bd.close();
     }
+    //Función para cargar libros a la ListView según búsqueda de título
     public void buscar() {
+        //Se establece la conexión con la base de datos
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this.getActivity(),
                 "admin", null, 1);
+        //En modo writable (modifica)
         SQLiteDatabase bd = admin.getWritableDatabase();
         String busqueda= edtBuscar.getText().toString();
         listaDescripcion.clear();
         listaTitulo.clear();
         listaLibros.clear();
+        //Se seleccionan los registros donde el titulo contenga la búsqueda ingresada
         Cursor registro=bd.rawQuery("select * from libro where titulo like '%"+busqueda+"%'",null);
         if(registro.moveToFirst()){
+            //Para cada registro que cumpla se añaden los valores a los ArrayLists
             do{
                 String titulo= registro.getString(1);
                 String autor= registro.getString(2);
@@ -135,9 +143,11 @@ public class HomeFragment extends Fragment {
                 listaDescripcion.add(registro.getString(4));
             }while (registro.moveToNext());
         }
+        //Se muestra la lista de libros en una ListView por medio de un adaptador
         adaptador=new ArrayAdapter(this.getActivity(), android.R.layout.simple_list_item_1,listaLibros);
         lvLibros.setAdapter(adaptador);
         lvLibros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //Se establece un cuadro de diálogo al hacer click en los elementos de la lista
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(getContext());

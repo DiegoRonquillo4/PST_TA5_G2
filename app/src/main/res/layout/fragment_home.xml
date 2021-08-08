@@ -23,7 +23,7 @@
 
             <EditText
                 android:id="@+id/edtBuscar"
-                android:layout_width="327dp"
+                android:layout_width="282dp"
                 android:layout_height="74dp"
                 android:ems="10"
                 android:hint="@string/buscar"

@@ -10,35 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private TextView tvUsuario;
-    // TODO: Rename and change types of parameters
+    private TextView tvUsuario, tvNombres, tvApellidos, tvCelular, tvCorreo, tvFavorito;
     private String mParam1;
     private String mParam2;
 
     public ProfileFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ProfileFragment newInstance(String param1, String param2) {
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
@@ -47,7 +29,6 @@ public class ProfileFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +43,18 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_profile, container, false);
         tvUsuario=(TextView) view.findViewById(R.id.tvUsuario);
-        String usuario = getActivity().getIntent().getStringExtra("user");
-        tvUsuario.setText(usuario);
+        tvNombres=(TextView) view.findViewById(R.id.tvNombres);
+        tvApellidos=(TextView) view.findViewById(R.id.tvApellidos);
+        tvCelular=(TextView) view.findViewById(R.id.tvCelular);
+        tvCorreo=(TextView) view.findViewById(R.id.tvCorreo);
+        tvFavorito=(TextView) view.findViewById(R.id.tvFavorito);
+        //Se modifican los TextView con la información enviada a través del Intent del MainActivity
+        tvUsuario.setText(getActivity().getIntent().getStringExtra("user"));
+        tvNombres.setText("Nombres: "+getActivity().getIntent().getStringExtra("nombres"));
+        tvApellidos.setText("Apellidos: "+getActivity().getIntent().getStringExtra("apellidos"));
+        tvCorreo.setText("Correo: "+getActivity().getIntent().getStringExtra("correo"));
+        tvCelular.setText("Celular: "+getActivity().getIntent().getStringExtra("celular"));
+        tvFavorito.setText("Favorito: "+getActivity().getIntent().getStringExtra("favorito"));
         return view;
     }
 }
